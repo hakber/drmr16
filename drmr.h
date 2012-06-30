@@ -1,9 +1,15 @@
 /* drmr.h
- * LV2 DrMr plugin
- * Copyright 2012 Nick Lanham <nick@afternight.org>
- *
- * Public License v3. source code is available at 
- * <http://github.com/nicklan/drmr>
+ * DrMr 16 is a small fork of Nick Lahams DrMr LV2 plugin. All I did
+ * was to turn it into a 16 channel sampler and thereby slightly
+ * modifying drmr.c, drmr.h and drmr.ttl.
+
+ * Nick Lahams version is available at <http://github.com/nicklan/drmr>
+
+ * This code is available at <http://github.com/hakber/drmr16>
+
+ * Copyright (c) 2012, Håkan Bernhardsson
+ * 	published under GPL v3.
+ * See COPYING for more information about the redistribution license
 
  * THIS SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
  * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
@@ -63,14 +69,14 @@ typedef struct {
 
 // lv2 stuff
 
-#define DRMR_URI "http://github.com/nicklan/drmr"
+#define DRMR_URI "http://github.com/hakber/drmr16"
 #define GAIN_MIN -60.0f
 #define GAIN_MAX 6.0f
 
 typedef enum {
   DRMR_MIDI = 0,
-  DRMR_LEFT,
-  DRMR_RIGHT,
+  DRMR_LEFT0,
+  DRMR_RIGHT0,
   DRMR_KITNUM,
   DRMR_BASENOTE,
   DRMR_GAIN_ONE,
@@ -139,13 +145,74 @@ typedef enum {
   DRMR_PAN_THIRTYTWO,
   DRMR_IGNORE_VELOCITY,
   DRMR_IGNORE_NOTE_OFF,
+  DRMR_LEFT1,
+  DRMR_RIGHT1,
+  DRMR_LEFT2,
+  DRMR_RIGHT2,
+  DRMR_LEFT3,
+  DRMR_RIGHT3,
+  DRMR_LEFT4,
+  DRMR_RIGHT4,
+  DRMR_LEFT5,
+  DRMR_RIGHT5,
+  DRMR_LEFT6,
+  DRMR_RIGHT6,
+  DRMR_LEFT7,
+  DRMR_RIGHT7,
+  DRMR_LEFT8,
+  DRMR_RIGHT8,
+  DRMR_LEFT9,
+  DRMR_RIGHT9,
+  DRMR_LEFT10,
+  DRMR_RIGHT10,
+  DRMR_LEFT11,
+  DRMR_RIGHT11,
+  DRMR_LEFT12,
+  DRMR_RIGHT12,
+  DRMR_LEFT13,
+  DRMR_RIGHT13,
+  DRMR_LEFT14,
+  DRMR_RIGHT14,
+  DRMR_LEFT15,
+  DRMR_RIGHT15,
   DRMR_NUM_PORTS
 } DrMrPortIndex;
 
 typedef struct {
   // Ports
-  float* left;
-  float* right;
+  float* left0;
+  float* right0;
+  float* left1;
+  float* right1;
+  float* left2;
+  float* right2;
+  float* left3;
+  float* right3;
+  float* left4;
+  float* right4;
+  float* left5;
+  float* right5;
+  float* left6;
+  float* right6;
+  float* left7;
+  float* right7;
+  float* left8;
+  float* right8;
+  float* left9;
+  float* right9;
+  float* left10;
+  float* right10;
+  float* left11;
+  float* right11;
+  float* left12;
+  float* right12;
+  float* left13;
+  float* right13;
+  float* left14;
+  float* right14;
+  float* left15;
+  float* right15;
+  
   LV2_Event_Buffer *midi_port;
 
   // params

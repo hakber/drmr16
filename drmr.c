@@ -1,9 +1,15 @@
 /* drmr.c
- * LV2 DrMr plugin
- * Copyright 2012 Nick Lanham <nick@afternight.org>
- *
- * Public License v3. source code is available at 
- * <http://github.com/nicklan/drmr>
+ * DrMr 16 is a small fork of Nick Lahams DrMr LV2 plugin. All I did
+ * was to turn it into a 16 channel sampler and thereby slightly
+ * modifying drmr.c, drmr.h and drmr.ttl.
+
+ * Nick Lahams version is available at <http://github.com/nicklan/drmr>
+
+ * This code is available at <http://github.com/hakber/drmr16>
+
+ * Copyright (c) 2012, Håkan Bernhardsson
+ * 	published under GPL v3.
+ * See COPYING for more information about the redistribution license
 
  * THIS SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
  * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
@@ -131,11 +137,101 @@ connect_port(LV2_Handle instance,
   case DRMR_MIDI:
     drmr->midi_port = (LV2_Event_Buffer*)data;
     break;
-  case DRMR_LEFT:
-    drmr->left = (float*)data;
+  case DRMR_LEFT0:
+    drmr->left0 = (float*)data;
     break;
-  case DRMR_RIGHT:
-    drmr->right = (float*)data;
+  case DRMR_RIGHT0:
+    drmr->right0 = (float*)data;
+    break;
+  case DRMR_LEFT1:
+    drmr->left1 = (float*)data;
+    break;
+  case DRMR_RIGHT1:
+    drmr->right1 = (float*)data;
+    break;
+  case DRMR_LEFT2:
+    drmr->left2 = (float*)data;
+    break;
+  case DRMR_RIGHT2:
+    drmr->right2 = (float*)data;
+    break;
+  case DRMR_LEFT3:
+    drmr->left3 = (float*)data;
+    break;
+  case DRMR_RIGHT3:
+    drmr->right3 = (float*)data;
+    break;
+  case DRMR_LEFT4:
+    drmr->left4 = (float*)data;
+    break;
+  case DRMR_RIGHT4:
+    drmr->right4 = (float*)data;
+    break;
+  case DRMR_LEFT5:
+    drmr->left5 = (float*)data;
+    break;
+  case DRMR_RIGHT5:
+    drmr->right5 = (float*)data;
+    break;
+  case DRMR_LEFT6:
+    drmr->left6 = (float*)data;
+    break;
+  case DRMR_RIGHT6:
+    drmr->right6 = (float*)data;
+    break;
+  case DRMR_LEFT7:
+    drmr->left7 = (float*)data;
+    break;
+  case DRMR_RIGHT7:
+    drmr->right7 = (float*)data;
+    break;
+  case DRMR_LEFT8:
+    drmr->left8 = (float*)data;
+    break;
+  case DRMR_RIGHT8:
+    drmr->right8 = (float*)data;
+    break;
+  case DRMR_LEFT9:
+    drmr->left9 = (float*)data;
+    break;
+  case DRMR_RIGHT9 :
+    drmr->right9 = (float*)data;
+    break;
+  case DRMR_LEFT10:
+    drmr->left10 = (float*)data;
+    break;
+  case DRMR_RIGHT10:
+    drmr->right10 = (float*)data;
+    break;
+  case DRMR_LEFT11:
+    drmr->left11 = (float*)data;
+    break;
+  case DRMR_RIGHT11:
+    drmr->right11 = (float*)data;
+    break;
+  case DRMR_LEFT12:
+    drmr->left12 = (float*)data;
+    break;
+  case DRMR_RIGHT12:
+    drmr->right12 = (float*)data;
+    break;
+  case DRMR_LEFT13:
+    drmr->left13 = (float*)data;
+    break;
+  case DRMR_RIGHT13:
+    drmr->right13 = (float*)data;
+    break;
+  case DRMR_LEFT14:
+    drmr->left14 = (float*)data;
+    break;
+  case DRMR_RIGHT14:
+    drmr->right14 = (float*)data;
+    break;
+  case DRMR_LEFT15:
+    drmr->left15 = (float*)data;
+    break;
+  case DRMR_RIGHT15:
+    drmr->right15 = (float*)data;
     break;
   case DRMR_KITNUM:
     if(data) drmr->kitReq = (float*)data;
@@ -266,8 +362,38 @@ static void run(LV2_Handle instance, uint32_t n_samples) {
   }
 
   for(i = 0;i<n_samples;i++) {
-    drmr->left[i] = 0.0f;
-    drmr->right[i] = 0.0f;
+    drmr->left0[i] = 0.0f;
+    drmr->right0[i] = 0.0f;
+    drmr->left1[i]=0.0f;
+    drmr->right1[i]=0.0f;
+    drmr->left2[i] = 0.0f;
+    drmr->right2[i] = 0.0f;
+    drmr->left3[i]=0.0f;
+    drmr->right3[i]=0.0f;
+    drmr->left4[i] = 0.0f;
+    drmr->right4[i] = 0.0f;
+    drmr->left5[i]=0.0f;
+    drmr->right5[i]=0.0f;
+    drmr->left6[i] = 0.0f;
+    drmr->right6[i] = 0.0f;
+    drmr->left7[i]=0.0f;
+    drmr->right7[i]=0.0f;
+    drmr->left8[i] = 0.0f;
+    drmr->right8[i] = 0.0f;
+    drmr->left9[i]=0.0f;
+    drmr->right9[i]=0.0f;
+    drmr->left10[i] = 0.0f;
+    drmr->right10[i] = 0.0f;
+    drmr->left11[i]=0.0f;
+    drmr->right11[i]=0.0f;
+    drmr->left12[i] = 0.0f;
+    drmr->right12[i] = 0.0f;
+    drmr->left13[i]=0.0f;
+    drmr->right13[i]=0.0f;
+    drmr->left14[i] = 0.0f;
+    drmr->right14[i] = 0.0f;
+    drmr->left15[i]=0.0f;
+    drmr->right15[i]=0.0f;
   }
 
   pthread_mutex_lock(&drmr->load_mutex); 
@@ -287,20 +413,95 @@ static void run(LV2_Handle instance, uint32_t n_samples) {
 	coef_right = coef_left = 1.0f;
       }
 
+
+      //Decide which channel to play on
+      float* tempLeft;
+      float* tempRight;
+      
+      switch(i){
+      case 0 :
+        tempLeft=drmr->left0;
+        tempRight=drmr->right0;
+        break;
+      case 1:
+        tempLeft=drmr->left1;
+        tempRight=drmr->right1;
+        break;
+      case 2 :
+        tempLeft=drmr->left2;
+        tempRight=drmr->right2;
+        break;
+      case 3:
+        tempLeft=drmr->left3;
+        tempRight=drmr->right3;
+        break;
+      case 4 :
+        tempLeft=drmr->left4;
+        tempRight=drmr->right4;
+        break;
+      case 5:
+        tempLeft=drmr->left5;
+        tempRight=drmr->right5;
+        break;
+      case 6 :
+        tempLeft=drmr->left6;
+        tempRight=drmr->right6;
+        break;
+      case 7:
+        tempLeft=drmr->left7;
+        tempRight=drmr->right7;
+        break;
+      case 8 :
+        tempLeft=drmr->left8;
+        tempRight=drmr->right8;
+        break;
+      case 9:
+        tempLeft=drmr->left9;
+        tempRight=drmr->right9;
+        break;
+      case 10:
+        tempLeft=drmr->left10;
+        tempRight=drmr->right10;
+        break;
+      case 11:
+        tempLeft=drmr->left11;
+        tempRight=drmr->right11;
+        break;
+      case 12 :
+        tempLeft=drmr->left12;
+        tempRight=drmr->right12;
+        break;
+      case 13:
+        tempLeft=drmr->left13;
+        tempRight=drmr->right13;
+        break;
+      case 14:
+        tempLeft=drmr->left13;
+        tempRight=drmr->right13;
+        break;
+      }
+      if(i>=15){
+        tempLeft=drmr->left15;
+        tempRight=drmr->right15;
+      }
+
       if (cs->info->channels == 1) { // play mono sample
 	lim = (n_samples < (cs->limit - cs->offset)?n_samples:(cs->limit-cs->offset));
 	for(pos = 0;pos < lim;pos++) {
-	  drmr->left[pos]  += cs->data[cs->offset]*coef_left;
-	  drmr->right[pos] += cs->data[cs->offset]*coef_right;
+	  drmr->left0[pos]  += cs->data[cs->offset]*coef_left;
+	  drmr->right0[pos] += cs->data[cs->offset]*coef_right;
 	  cs->offset++;
 	}
       } else { // play stereo sample
-	lim = (cs->limit-cs->offset)/cs->info->channels;
-	if (lim > n_samples) lim = n_samples;
-	for (pos=0;pos<lim;pos++) {
-	  drmr->left[pos]  += cs->data[cs->offset++]*coef_left;
-	  drmr->right[pos] += cs->data[cs->offset++]*coef_right;
-	}
+        lim = (cs->limit-cs->offset)/cs->info->channels;
+        if (lim > n_samples) lim = n_samples;
+        for (pos=0;pos<lim;pos++) {
+          tempLeft[pos]  += cs->data[cs->offset++]*coef_left;
+          tempRight[pos] += cs->data[cs->offset++]*coef_right;
+        }
+        
+        tempLeft=NULL;
+        tempRight=NULL;
       }
       if (cs->offset >= cs->limit) cs->active = 0;
     }

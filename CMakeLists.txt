@@ -1,7 +1,7 @@
 #CMake file for DrMr
 
 cmake_minimum_required(VERSION 2.6)
-project (DrMr)
+project (DrMr16)
 
 set(LV2_INSTALL_DIR lib/lv2 CACHE PATH "Specifies where the LV2 libraries should be installed")
 set(CMAKE_C_FLAGS "-Wall")
@@ -96,9 +96,9 @@ set_target_properties ( knobt
 # config install
 install(TARGETS drmr drmr_ui
   LIBRARY
-  DESTINATION ${CMAKE_INSTALL_PREFIX}/${LV2_INSTALL_DIR}/drmr.lv2
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/${LV2_INSTALL_DIR}/drmr16.lv2
 )
 
 install (FILES manifest.ttl drmr.ttl knob.png
-  DESTINATION ${CMAKE_INSTALL_PREFIX}/${LV2_INSTALL_DIR}/drmr.lv2
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/${LV2_INSTALL_DIR}/drmr16.lv2
 )

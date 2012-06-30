@@ -1,3 +1,7 @@
+DrMr16 is a small modification of Nick Lanhams DrMr LV2 plugin found at
+<http://github.com/nicklan/drmr>. The only difference is that it uses 16
+channels for output. See the original DrMr README file below!
+
 DrMr
 ====
 
